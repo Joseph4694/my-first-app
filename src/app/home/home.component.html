@@ -1,0 +1,48 @@
+
+<form (ngSubmit)="onsubmit()">
+
+    
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label></label>
+            <input type="text" class="form-control text-primary" placeholder="Full Name"  [(ngModel)]="home.fullname" name="fullname">
+        </div>
+        <div class="form-group">
+            <label></label>
+            <input type="text-primary" class="form-control text-primary" placeholder="+998" [(ngModel)]="home.telephonenumber" name="telephonenumbe">
+        </div>
+        <div class="form-group">
+            <label></label>
+            <input type="email" class="form-control text-primary" id="exampleFormControlInput1" placeholder="name@example.com" [(ngModel)]="home.email" name="email">
+            
+        </div>
+        
+        <button class="btn btn-outline-primary btn-lg btn-block" type="Add" value="Add">{{title}}</button>
+    </div>
+</div>
+</form>
+
+<br/>
+
+ <table class="table table-bordered" >
+    <tr class="h4" >
+        <td class="bg-primary text-white" >Full Name</td>
+        <td class="bg-primary text-white">Telephone Number</td>
+        <td class="bg-primary text-white">Email</td>
+        <td class="bg-primary text-white">Edit</td>
+        <td class="bg-primary text-white">Delete</td>
+        
+    </tr>
+    
+    <tr *ngFor="let obj of homearray; let j=index;">
+        
+        <td class="text-primary"><a class="h4">{{obj.fullname}}</a></td>
+        <td class="text-primary"><a class="h4">{{obj.telephonenumber}}</a></td>
+        <td class="text-primary"><a class="h4">{{obj.email}}</a></td>
+        <td class="text-primary"><a class="btn btn-lg btn-block btn-outline-primary" (click)="edit(obj,j)">Edit</a></td>
+        <td class="text-danger"><a class="btn btn-lg btn-block btn-outline-danger" (click)="delete(j)">Delete</a></td>
+       
+    </tr>
+ </table>
+
